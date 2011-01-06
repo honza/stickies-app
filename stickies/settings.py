@@ -4,6 +4,8 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+PROJECT_ROOT = os.path.dirname(__file__)
+
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),
 )
