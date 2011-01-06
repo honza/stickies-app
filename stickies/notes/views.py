@@ -8,7 +8,9 @@ def index(request):
     return render_to_response('index.html', {'projects': projects})
 
 def project(request, id):
-    return HttpResponse('Id %s' % id)
+    project = Project.objects.get(id=id)
+    project.get_notes()
+    return render_to_response('project.html', {'project': project})
 
 def ajax(request):
     pass
