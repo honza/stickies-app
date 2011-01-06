@@ -21,7 +21,7 @@
     <div id="todo" class="column">
         {% for note in project.note_set.all %}
             {% if note.state == 'To Do' %}
-            <div class="portlet ui-widget">
+            <div id="note-{{ note.id }}" class="portlet ui-widget">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}
