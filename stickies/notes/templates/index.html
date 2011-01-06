@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Your Projects{% endblock %}
+
+{% block content %}
+
+<h3>Your Projects</h3>
+
+{% if projects %}
+    {% for project in projects %}
+        <a href="/project/{{ project.id }}/">{{ project.name }}</a><br>
+    {% endfor %}
+{% else %}
+<p>You have no projects</p>
+{% endif %}
+
+{% endblock %}
