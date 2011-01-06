@@ -9,3 +9,14 @@
 .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
 .ui-sortable-placeholder * { visibility: hidden; }
 
+#column-labels {
+    list-style: none;
+    margin: 0;
+    padding:0;
+    text-align: center;
+}
+
+#column-labels li {
+    width: 15%;
+    float: left;
+}
