@@ -12,30 +12,73 @@
 
     <div id="todo" class="column">
         <h2>To Do</h2>
-        <div class="portlet">
-            <div class="portlet-content">Some text</div>
-        </div>
+        {% for note in project.note_set.all %}
+            {% if note.state == 'To Do' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
     </div>
 
     <div id="inprogress" class="column">
         <h2>In Progress</h2>
+        {% for note in project.note_set.all %}
+            {% if note.state == 'In Progress' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
 
     </div>
 
     <div id="document" class="column">
-        <h2>Document</h2>
+        <h2>Document</h2>        
+        {% for note in project.note_set.all %}
+            {% if note.state == 'Document' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
     </div>
 
     <div id="test" class="column">
         <h2>Test</h2>
+        {% for note in project.note_set.all %}
+            {% if note.state == 'Test' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
     </div>
 
     <div id="verify" class="column">
         <h2>Verify</h2>
+        {% for note in project.note_set.all %}
+            {% if note.state == 'Verify' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
     </div>
 
     <div id="done" class="column">
         <h2>Done</h2>
+        {% for note in project.note_set.all %}
+            {% if note.state == 'Done' %}
+            <div class="portlet">
+                <div class="portlet-content">{{ note.content }}</div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
     </div>
 
 </div>

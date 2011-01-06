@@ -28,21 +28,6 @@ class Project(models.Model):
         self.group = g
         return super(Project, self).save(args, kwds)
 
-    def get_notes(self):
-        """Return dict of notes"""
-        notes = self.note_set.all()
-        d = {
-            "To Do": [],
-            "In Progress": [],
-            "Document": [],
-            "Test": [],
-            "Verify": [],
-            "Done": []
-        }
-        for note in notes:
-            d[note.state].append(note)
-        print d
-
 
 class Note(models.Model):
     content = models.TextField()

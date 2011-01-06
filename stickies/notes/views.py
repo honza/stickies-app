@@ -9,7 +9,6 @@ def index(request):
 
 def project(request, id):
     project = Project.objects.get(id=id)
-    project.get_notes()
     return render_to_response('project.html', {'project': project})
 
 def ajax(request):
