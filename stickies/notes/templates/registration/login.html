@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="login">
+    <h1>StickiesApp</h1>
+
+<form method="post" action="/accounts/login/">
+    {% csrf_token %}
+    <table id="form">
+<tr>
+    <td>{{ form.username.label_tag }}</td>
+    <td>{{ form.username }}</td>
+</tr>
+<tr>
+    <td>{{ form.password.label_tag }}</td>
+    <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="hidden" name="next" value="/" />
+<input type="submit" value="Log in" />
+</form>
+
+</div>
+
+{% endblock %}

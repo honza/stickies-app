@@ -7,7 +7,10 @@ STATES = ['todo', 'inprogress', 'document', 'test', 'verify', 'done']
 
 
 def index(request):
-    projects = Project.objects.all()
+    if request.user.is_authenticated():
+        projects = Project.objects.all()
+    else:
+        projects = None
     return render_to_response('index.html', {'projects': projects})
 
 def project(request, id):

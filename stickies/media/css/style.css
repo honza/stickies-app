@@ -72,3 +72,18 @@ body {
     font-size: 1em;
     padding: 5px;
 }
+
+#form td {
+    padding: 5px 10px;
+}
+
+#form input {
+    padding: 2px 5px;
+}
+
+#login {
+    width: 600px;
+    margin: 30px auto;
+}
+
+

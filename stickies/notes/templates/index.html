@@ -6,8 +6,9 @@
 
 <div id="home">
 <h1>StickiesApp</h1>
-<h2>Your Projects</h2>
 
+{% if user.is_authenticated %}
+<h2>Your Projects</h2>
 {% if projects %}
     {% for project in projects %}
         <a href="/project/{{ project.id }}/">{{ project.name }}</a><br>
@@ -15,5 +16,9 @@
 {% else %}
 <p>You have no projects</p>
 {% endif %}
+{% else %}
+<a href="/accounts/login/">Log in</a>
+{% endif %}
+
 </div>
 {% endblock %}
