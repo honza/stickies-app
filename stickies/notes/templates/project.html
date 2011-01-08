@@ -20,7 +20,7 @@
 
     <div id="todo" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'To Do' %}
+            {% if note.state == 'todo' %}
             <div id="note-{{ note.id }}" class="portlet ui-widget">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
@@ -30,8 +30,8 @@
 
     <div id="inprogress" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'In Progress' %}
-            <div class="portlet">
+            {% if note.state == 'inprogress' %}
+            <div id="note-{{ note.id }}" class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}
@@ -41,8 +41,8 @@
 
     <div id="document" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'Document' %}
-            <div class="portlet">
+            {% if note.state == 'document' %}
+            <div id="note-{{ note.id }}" class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}
@@ -52,8 +52,8 @@
 
     <div id="test" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'Test' %}
-            <div class="portlet">
+            {% if note.state == 'test' %}
+            <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}
@@ -63,8 +63,8 @@
 
     <div id="verify" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'Verify' %}
-            <div class="portlet">
+            {% if note.state == 'verify' %}
+            <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}
@@ -74,8 +74,8 @@
 
     <div id="done" class="column">
         {% for note in project.note_set.all %}
-            {% if note.state == 'Done' %}
-            <div class="portlet">
+            {% if note.state == 'done' %}
+            <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
             </div>
             {% endif %}

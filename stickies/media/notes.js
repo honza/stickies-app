@@ -11,8 +11,14 @@ $(function() {
 		        var w = event.toElement.parentElement;
 		        w = $(w).parent();
 		        w = w.attr('id');
-		        alert(id);
-		        alert(w);
+		        $.post('/ajax/', {
+                    note: id,
+                    section: w
+                }, function(r){
+                    if (r != 'OK'){
+                        alert('There was an error while saving.');
+                    }
+                });
 		    }
 		});
  

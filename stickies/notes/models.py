@@ -4,12 +4,12 @@ from django.db.models.signals import post_save
 
 
 note_states = (
-    ('To Do', 'To Do',),
-    ('In Progress', 'In Progress',),
-    ('Document', 'Document',),
-    ('Test', 'Test',),
-    ('Verify', 'Verify',),
-    ('Done', 'Done',),
+    ('todo', 'To Do',),
+    ('inprogress', 'In Progress',),
+    ('document', 'Document',),
+    ('test', 'Test',),
+    ('verify', 'Verify',),
+    ('done', 'Done',),
 )
 
 class UserProfile(models.Model):
