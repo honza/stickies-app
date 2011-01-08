@@ -22,6 +22,11 @@ $(function() {
 		    }
 		});
  
-		$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" );
+		$( ".portlet" ).addClass( "ui-widget ui-widget-content ui-helper-clearfix ui-corner-all" )
+		    .prepend('<div class="portlet-header"></div>')
+		    .find(".portlet-header")
+		        .prepend('<span class="ui-icon ui-icon-pencil"></span>')
+		        .prepend('<span class="ui-icon ui-icon-close"></span>')
+		        .addClass('ui-widget-header ui-corner-all');
         $( ".column" ).disableSelection();
 });
