@@ -4,11 +4,11 @@
 
 {% block content %}
 
-<h2>Project</h2>
+<span id="logo">StickiesApp</span>
+ - Current Project: <span id="project-title">{{ project.name }}</span>
+ - <a href="/">Home</a>
 
-{{ project.name }}
-
-<div>
+<div id="main">
     <ul id="column-labels">
         <li><h2>To Do</h2></li>
         <li><h2>In Progress</h2></li>

@@ -4,7 +4,9 @@
 
 {% block content %}
 
-<h3>Your Projects</h3>
+<div id="home">
+<h1>StickiesApp</h1>
+<h2>Your Projects</h2>
 
 {% if projects %}
     {% for project in projects %}
@@ -13,5 +15,5 @@
 {% else %}
 <p>You have no projects</p>
 {% endif %}
-
+</div>
 {% endblock %}

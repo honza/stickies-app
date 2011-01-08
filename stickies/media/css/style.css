@@ -5,11 +5,36 @@
 }
 
 body {
-    margin: 0 5px;
+    margin: 10px 5px;
     padding: 0;
     font-family: 'Ubuntu', serif;
 
 }
+
+#logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#project-title {
+    font-weight: bold;
+}
+
+#main {
+    margin: 20px 0 0 0;
+}
+
+#home {
+    width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+#home h1 {
+    font-size: 72px;
+    margin-bottom: 50px;
+}
+
 .column { width: 15%; float: left; padding-bottom: 100px; text-align: center;}
 .portlet { margin: 0 1em 1em 0; }
 .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; height: 20px; }
