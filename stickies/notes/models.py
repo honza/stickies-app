@@ -28,14 +28,23 @@ class Project(models.Model):
         self.group = g
         return super(Project, self).save(args, kwds)
 
+    def __unicode__(self):
+        return self.name
+
 
 class Note(models.Model):
     content = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, related_name='authors')
     project = models.ForeignKey(Project)
+    last_changed_by = models.ForeignKey(User, null=True, blank=True)
     state = models.CharField(choices=note_states, max_length=13,
-        default='To Do')
+        default='todo')
+
+    def save(self, *args, **kwds):
+        if not self.last_changed_by:
+            self.last_changed_by = self.author
+        super(Note, self).save(args, kwds)
 
     def __unicode__(self):
         return self.content

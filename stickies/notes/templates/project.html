@@ -23,6 +23,9 @@
             {% if note.state == 'todo' %}
             <div id="note-{{ note.id }}" class="portlet ui-widget">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
