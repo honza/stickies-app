@@ -58,6 +58,7 @@ $(function() {
 		        .prepend('<span class="ui-icon ui-icon-pencil"></span>')
 		        .prepend('<span class="ui-icon ui-icon-close"></span>')
 		        .addClass('ui-widget-header ui-corner-all');
+
 		// connect icon buttons
 		$('.ui-icon-pencil').click(function(){
             _id = $(this).parent().parent().attr('id');
@@ -66,5 +67,20 @@ $(function() {
             $('#dialog').dialog('open');
 
 		});
+
+        $('.ui-icon-close').click(function(){
+            _id = $(this).parent().parent().attr('id');
+            $.post('/ajax/', {
+                a: 'delete',
+                note: _id
+                }, function(r){
+                    if (r != 'OK'){
+                        alert('Error deleting'); 
+                        return;
+                    }
+                    $('#' + _id).remove();
+                });
+        });
+		
         $( ".column" ).disableSelection();
 });

@@ -18,7 +18,7 @@ def ajax(request):
     if not request.is_ajax():
         raise Http404
     a = request.POST.get('a')
-    if a not in ['move', 'edit']:
+    if a not in ['move', 'edit', 'delete']:
         raise Http404
     n = request.POST.get('note')
     id = int(n[5:])
@@ -28,6 +28,9 @@ def ajax(request):
         if st not in STATES:
             raise Http404
         note.state = st
+    elif a == 'delete':
+        note.delete()
+        return HttpResponse('OK')
     else:
         content = request.POST.get('content')
         note.content = content
