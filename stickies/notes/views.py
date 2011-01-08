@@ -17,13 +17,20 @@ def project(request, id):
 def ajax(request):
     if not request.is_ajax():
         raise Http404
+    a = request.POST.get('a')
+    if a not in ['move', 'edit']:
+        raise Http404
     n = request.POST.get('note')
     id = int(n[5:])
     note = get_object_or_404(Note, pk=id)
-    st = request.POST.get('section')
-    if st not in STATES:
-        raise Http404
-    note.state = st
+    if a == 'move':
+        st = request.POST.get('section')
+        if st not in STATES:
+            raise Http404
+        note.state = st
+    else:
+        content = request.POST.get('content')
+        note.content = content
     note.save()
     return HttpResponse('OK')
 
