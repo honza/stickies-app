@@ -1,4 +1,5 @@
 from django.http import HttpResponse, Http404
+from django.template import RequestContext
 from models import Note, Project
 from django.shortcuts import render_to_response, get_object_or_404
 
@@ -11,7 +12,8 @@ def index(request):
         projects = Project.objects.all()
     else:
         projects = None
-    return render_to_response('index.html', {'projects': projects})
+    return render_to_response('index.html', {'projects': projects},
+            context_instance=RequestContext(request))
 
 def project(request, id):
     project = Project.objects.get(id=id)

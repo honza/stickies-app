@@ -5,16 +5,17 @@
 <div id="login">
     <h1>StickiesApp</h1>
 
-<form method="post" action="/accounts/login/">
+    <form method="post" action="{% url django.contrib.auth.views.login %}">
     {% csrf_token %}
+    {{ form.non_field_errors }}
     <table id="form">
 <tr>
     <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
+    <td>{{ form.username }} {{ form.username.errors }}</td>
 </tr>
 <tr>
     <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
+    <td>{{ form.password }} {{ form.password.errors }}</td>
 </tr>
 </table>
 
@@ -23,5 +24,9 @@
 </form>
 
 </div>
+
+<script type="text/javascript" charset="utf-8">
+    document.getElementById('id_username').focus();
+</script>
 
 {% endblock %}

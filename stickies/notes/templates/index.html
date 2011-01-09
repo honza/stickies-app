@@ -8,16 +8,20 @@
 <h1>StickiesApp</h1>
 
 {% if user.is_authenticated %}
-<h2>Your Projects</h2>
-{% if projects %}
-    {% for project in projects %}
-        <a href="/project/{{ project.id }}/">{{ project.name }}</a><br>
-    {% endfor %}
+    <h2>Your Projects</h2>
+    {% if projects %}
+        {% for project in projects %}
+            <a href="/project/{{ project.id }}/">{{ project.name }}</a><br>
+        {% endfor %}
+    {% else %}
+        <p>You have no projects</p>
+    {% endif %}
+
+    <div id="footer">
+        <a href="/accounts/logout/">Log out</a>
+    </div>
 {% else %}
-<p>You have no projects</p>
-{% endif %}
-{% else %}
-<a href="/accounts/login/">Log in</a>
+    <a href="/accounts/login/">Log in</a>
 {% endif %}
 
 </div>
