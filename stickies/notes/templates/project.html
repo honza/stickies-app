@@ -4,9 +4,14 @@
 
 {% block content %}
 
+<script type="text/javascript" charset="utf-8">
+    var _project = {{ project.id }};
+</script>
+
 <span id="logo">StickiesApp</span>
  - Current Project: <span id="project-title">{{ project.name }}</span>
  - <a href="/">Home</a>
+ - <a href="#" id="new-sticky">New Sticky</a>
 
 <div id="main">
     <ul id="column-labels">
@@ -36,6 +41,9 @@
             {% if note.state == 'inprogress' %}
             <div id="note-{{ note.id }}" class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
@@ -47,6 +55,9 @@
             {% if note.state == 'document' %}
             <div id="note-{{ note.id }}" class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
@@ -58,6 +69,9 @@
             {% if note.state == 'test' %}
             <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
@@ -69,6 +83,9 @@
             {% if note.state == 'verify' %}
             <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
@@ -80,6 +97,9 @@
             {% if note.state == 'done' %}
             <div id="note-{{ note.id }}"  class="portlet">
                 <div class="portlet-content">{{ note.content }}</div>
+                <div class="portlet-meta">
+                    <p>Author: {{ note.author.username }}</p>
+                </div>
             </div>
             {% endif %}
         {% endfor %}
