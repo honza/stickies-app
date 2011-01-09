@@ -2,8 +2,18 @@
 
 var _id;
 var _c;
+var _mode;
+var _r;
 
 $(function() {
+
+    $('#new-sticky').button();
+    $('#new-sticky').click(function(){
+        $('#edit-sticky').html(' ');
+        _mode = 'new';
+        $('#dialog').dialog('open');
+        return false;
+    });
 
 
     $('#dialog').dialog({
@@ -17,11 +27,19 @@ $(function() {
                 $.post('/ajax/', {
                     note: _id,
                     content: _c,
-                    a: 'edit'
+                    a: _mode,
+                    project: _project
                 }, function(r){
-                    if (r == 'OK'){
-                        $('#' + _id + ' .portlet-content').children().remove();
-                        $('#' + _id + ' .portlet-content').html(_c);
+                    _r = r;
+                    _r = $.parseJSON(r);
+                    if (_r.status == 200){
+                        if (_mode == 'edit'){
+                            $('#' + _id + ' .portlet-content').children().remove();
+                            $('#' + _id + ' .portlet-content').html(_c);
+                        } else {
+                            // create a new sticky
+                            $('#todo').append(_r.content);
+                        }
                         $('#dialog').dialog('close');
                     }
             } // response fn
@@ -45,7 +63,8 @@ $(function() {
                     section: w,
                     a: 'move'
                 }, function(r){
-                    if (r != 'OK'){
+                    _r = $.parseJSON(r);
+                    if (_r.status != 200){
                         alert('There was an error while saving.');
                     }
                 });
@@ -64,6 +83,7 @@ $(function() {
             _id = $(this).parent().parent().attr('id');
             var cont = $(this).parent().next().html();
             $('#edit-sticky').html('').html(cont);
+            _mode = 'edit';
             $('#dialog').dialog('open');
 
 		});
@@ -74,7 +94,8 @@ $(function() {
                 a: 'delete',
                 note: _id
                 }, function(r){
-                    if (r != 'OK'){
+                    _r = $.parseJSON(r);
+                    if (_r.status != 200){
                         alert('Error deleting'); 
                         return;
                     }
